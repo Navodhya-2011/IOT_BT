@@ -219,11 +219,15 @@ void sendDataToUbidots()
   float pressure = bmp.readPressure();
   int rain_State = rain_State;
   float distance = distance_1;
+  float humidity = dht.readHumidity();
+  float altitude = bmp.readAltitude();
   
   ubidots.add("temperature", temperature);
   ubidots.add("pressure", pressure);
   ubidots.add("rain-state", rain_State);
   ubidots.add("distance", distance);
+  ubidots.add("humidity", humidity);
+  ubidots.add("altitude", altitude);
 
   // Publish all data to Ubidots
   ubidots.publish(DEVICE_LABEL);
